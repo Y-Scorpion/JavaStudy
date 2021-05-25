@@ -5,7 +5,7 @@
     <!-- 自定义属性 -->
     <Properties>
         <!-- 日志格式(控制台) -->
-        <Property name="pattern1">[%-5p] %d %c - %m%n</Property>
+        <Property name="pattern1">[%-5p] %d %c -%t ： %m%n</Property>
         <!-- 日志格式(文件) -->
         <Property name="pattern2">
             =========================================%n 日志级别：%p%n 日志时间：%d%n 所属类名：%c%n 所属线程：%t%n 日志信息：%m%n

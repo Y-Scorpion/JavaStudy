@@ -1,0 +1,164 @@
+# JavaStudy
+第一课
+### TestLog.java：
+    log4j2.xml 整合配置 日志输出相对println()更加详细
+    java程序入口Main方法
+    1.需要理解java的加载和执行  javac xx.java  java xxx
+    2.java开发环境配置  jdk（jre）安装和配置
+    3.编写程序 输出hellworld
+    4.java注释的使用和作用
+    5.public class 和class的区别
+### DataType.java:
+    Java语言提供了八种基本类型。
+    六种数字类型（四个整数型，两个浮点型），一种字符类型，还有一种布尔型。
+    byte：
+        byte 数据类型是8位、有符号的，以二进制补码表示的整数；
+        最小值是 -128（-2^7）；
+        最大值是 127（2^7-1）；
+        默认值是 0；
+        byte 类型用在大型数组中节约空间，主要代替整数，因为 byte 变量占用的空间只有 int 类型的四分之一；
+        例子：byte a = 100，byte b = -50。
+    short：
+        short 数据类型是 16 位、有符号的以二进制补码表示的整数
+        最小值是 -32768（-2^15）；
+        最大值是 32767（2^15 - 1）；
+        Short 数据类型也可以像 byte 那样节省空间。一个short变量是int型变量所占空间的二分之一；
+        默认值是 0；
+        例子：short s = 1000，short r = -20000。
+    int：
+        int 数据类型是32位、有符号的以二进制补码表示的整数；
+        最小值是 -2,147,483,648（-2^31）；
+        最大值是 2,147,483,647（2^31 - 1）；
+        一般地整型变量默认为 int 类型；
+        默认值是 0 ；
+        例子：int a = 100000, int b = -200000。
+    long：
+        long 数据类型是 64 位、有符号的以二进制补码表示的整数；
+        最小值是 -9,223,372,036,854,775,808（-2^63）；
+        最大值是 9,223,372,036,854,775,807（2^63 -1）；
+        这种类型主要使用在需要比较大整数的系统上；
+        默认值是 0L；
+        例子： long a = 100000L，Long b = -200000L。
+        "L"理论上不分大小写，但是若写成"l"容易与数字"1"混淆，不容易分辩。所以最好大写。
+    float：
+        float 数据类型是单精度、32位、符合IEEE 754标准的浮点数；
+        float 在储存大型浮点数组的时候可节省内存空间；
+        默认值是 0.0f；
+        浮点数不能用来表示精确的值，如货币；
+        例子：float f1 = 234.5f。
+    double：
+        double 数据类型是双精度、64 位、符合 IEEE 754 标准的浮点数；
+        浮点数的默认类型为 double 类型；
+        double类型同样不能表示精确的值，如货币；
+        默认值是 0.0d；
+### KeyWord.java:
+    java关键字：
+        class               extends             implements              interface
+        import              package             break                   case
+        continue            default             do                      if
+        else                for                 return                  switch
+        while               false               true                    null
+        boolean             byte                char                    short
+        int                 long                float                   double
+        try                 catch               throw                   throws
+        finally             abstract            fianl                   native
+        private             protected           public                  static
+        synchronized        transient           volatile                instanceof
+        new                 super               void                    assert
+        enum                goto                const                   this
+
+        class：
+            java类定义关键字
+
+        extends：
+            继承类或者继承接口的关键字。
+
+        implements：
+            实现接口的关键字。
+
+        interface：
+            定义接口的关键字。
+
+        import：
+            java导入库关键字
+
+        package：
+            java包路径关键字
+
+        break,continue：
+            break跳出结束循环,continue结束当前循环进入下一次循环
+
+        switch,case,if,else:
+            java条件判断关键字
+
+        for,while,do:
+            java循环关键字
+
+        return：
+            java返回关键字,可用于返回返回值,或结束方法
+        
+        false,true:
+            布尔类型关键字
+
+        default：
+            jdk8中新加关键字,用于在接口中默认实现
+
+        null：
+            空值（保留字）
+
+        boolean,byte,char,short,int,long,float,double：
+            java八大基本类型关键字
+
+        try,catch,finally,throws:
+            java处理异常关键字 try检测异常 catch捕获，finally不管是否发生异常，都会执行的语句块,throws是将异常抛出
+        
+        throw：
+            声明一个异常
+
+        abstract：
+            定义抽象类或者抽象方法的关键字。
+
+        fianl：
+            最终修饰符,修饰基本数据类型为常量,修饰对方,则无法修改引用对象地址,修饰方法无法重写,修饰类无法继承；
+
+        native：
+            调用C或者C++的代码；
+
+        private,protected,public：
+            java访问权限修饰符关键字
+
+        static：
+            java静态修饰关键字
+
+        synchronized：
+            同步线程锁
+
+        volatile：
+            volatile关键字修饰的变量在多线程中保持同步
+
+        transient：
+            瞬时的   IO流的对象流 变量修饰表示不被序列化
+
+        instanceof：
+            用来确定对象所属的类
+        
+        new：
+            实例化对象的关键字。
+        
+        super:
+            用来表示父类对象
+
+        void：
+            空返回数据类型的关键字。
+
+        enum：
+            定义枚举的关键字。
+
+        assert：
+            断言,测试用类似于if不可用于生产环境
+
+        this:
+            用来表示对象本身
+
+        goto,const:
+            保留关键字
