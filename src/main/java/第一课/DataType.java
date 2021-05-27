@@ -98,16 +98,31 @@ public class DataType {
      * java 八大基本类型测试输出
      * @param args
      */
+//    public static void main(String[] args) {
+//        DataType dataType = new DataType();
+//        dataType.setaChar('a');
+//        dataType.setaByte((byte) 20);
+//        dataType.setaShort((short) 100);
+//        dataType.setaInt(2000);
+//        dataType.setaLong(1000L);
+//        dataType.setaFloat(100.1f);
+//        dataType.setaDouble(100.11);
+//        dataType.setaBoolean(true);
+//        logger.info(dataType);
+//        //八种基本类型对应八个基本类型包装类
+//        Character character = new Character('a');
+//        Byte aByte = new Byte((byte) 100);
+//        Short aShort = new Short((short) 200);
+//        Integer integer = new Integer(3000);
+//        Long aLong = new Long(1000L);
+//        Float aFloat = new Float(100.1F);
+//        Double aDouble = new Double(100.00);
+//        //String 特殊包装类
+//        String str = new String("String特殊包装类");
+//    }
     public static void main(String[] args) {
-        DataType dataType = new DataType();
-        dataType.setaChar('a');
-        dataType.setaByte((byte) 20);
-        dataType.setaShort((short) 100);
-        dataType.setaInt(2000);
-        dataType.setaLong(1000L);
-        dataType.setaFloat(100.1f);
-        dataType.setaDouble(100.11);
-        dataType.setaDouble(1);
-        logger.info(dataType);
+        Integer int1 = Integer.valueOf(100);
+        Integer int2 = Integer.valueOf(100);
+        System.out.println(int1==int2);
     }
 }

@@ -10,7 +10,14 @@
     5.public class 和class的区别
 ### DataType.java:
     Java语言提供了八种基本类型。
+    byte、short、int、long、float、double、boolean、char
     六种数字类型（四个整数型，两个浮点型），一种字符类型，还有一种布尔型。
+    八种包装类Byte、Short、Integer、Long、Float、Double、Boolean、Character
+    一种特殊包装类 String 字符串类型
+        （1）如果要操作少量的数据用 String
+        （2）多线程操作字符串缓冲区下操作大量数据 StringBuffer 线程安全
+        （3）单线程操作字符串缓冲区下操作大量数据 StringBuilder
+
     byte：
         byte 数据类型是8位、有符号的，以二进制补码表示的整数；
         最小值是 -128（-2^7）；

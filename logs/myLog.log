@@ -334,3 +334,9 @@
  所属类名：第一课.TestLog
  所属线程：main
  日志信息：dataType{aChar=a, aByte=20, aShort=100, aInt=2000, aLong=1000, aFloat=100.1, aDouble=1.0, aBoolean=false}
+=========================================
+ 日志级别：INFO
+ 日志时间：2021-05-25 16:42:19,142
+ 所属类名：第一课.TestLog
+ 所属线程：main
+ 日志信息：dataType{aChar=a, aByte=20, aShort=100, aInt=2000, aLong=1000, aFloat=100.1, aDouble=1.0, aBoolean=false}
