@@ -24,7 +24,7 @@ public class ByteInputStreams {
 //        testFileInputStream1(); //纯读取文件 循环十次运行时间1364659457800纳秒 平均每次约136.46秒
 //        testFileInputStream2(); //纯读取文件 循环十次运行时间13432788100纳秒 平均每次约1.34秒    性能约提升101倍
 //        testFileInputStream3(); //纯读取文件 循环十次运行时间11389524200纳秒 平均每次约1.13秒    性能约提升120倍
-//        testFileInputStream4(); //纯读取文件 循环十次运行时间11370029800纳秒 平均每次约1.13秒    性能约提升120倍
+        testFileInputStream4(); //纯读取文件 循环十次运行时间11370029800纳秒 平均每次约1.13秒    性能约提升120倍
 //        testBufferedInputStream1();   //纯读取文件 循环十次运行时间479784725200纳秒 平均每次约47.97秒 性能约提升2.8倍
 //        testBufferedInputStream2();//纯读取文件 循环十次运行时间12026112300纳秒 平均每次约1.20秒 性能约提升113倍
 //        testBufferedInputStream3();//纯读取文件 循环十次运行时间12005131500纳秒 平均每次约1.20秒   性能约提升113倍
