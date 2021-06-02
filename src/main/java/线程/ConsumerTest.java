@@ -1,4 +1,4 @@
-package 第三课;
+package 线程;
 
 import java.io.File;
 import java.io.FileInputStream;

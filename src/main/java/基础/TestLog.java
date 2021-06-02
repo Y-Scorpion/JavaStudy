@@ -1,4 +1,4 @@
-package 第一课;
+package 基础;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

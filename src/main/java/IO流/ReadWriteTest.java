@@ -1,4 +1,4 @@
-package 第二课;
+package IO流;
 
 import java.io.FileInputStream;
 import java.io.IOException;

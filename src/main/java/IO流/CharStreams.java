@@ -1,4 +1,4 @@
-package 第二课;
+package IO流;
 
 /**
  * 字符流
