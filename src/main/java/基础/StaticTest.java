@@ -4,9 +4,6 @@ package 基础;
  * 
  * @Title: StaticTest
  * @Description: 构造块和静态方法测试
- * @Version:1.0.0
- * @author Administrator
- * @date 2017-8-14
  */
 public class StaticTest {
 	public static StaticTest t1 = new StaticTest();

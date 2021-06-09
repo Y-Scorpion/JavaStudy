@@ -72,13 +72,13 @@ public class MapTest {
 	}
 	
 	private static void test2() {
-		Map<String,Object> hashMap=new HashMap<String,Object>();
+		Map<String,Object> hashMap= new HashMap<>();
 		hashMap.put("a", 1);
 		hashMap.put("c", 3);
 		hashMap.put("b", 2);
 		System.out.println("HashMap:"+hashMap);
 		
-		Map<String,Object> treeMap=new TreeMap<String,Object>();
+		Map<String,Object> treeMap= new TreeMap<>();
 		treeMap.put("a", 1);
 		treeMap.put("c", 3);
 		treeMap.put("b", 2);

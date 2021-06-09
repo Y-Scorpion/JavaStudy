@@ -1,21 +1,11 @@
 package 基础;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 /**
  * 
 * @Title: setTest
 * @Description: 重写set中的equals和hashcode
-* @Version:1.0.0  
-* @author panchengming
-* @date 2017年9月17日
  */
 public class SetTest {
 	
@@ -26,9 +16,9 @@ public class SetTest {
 		Set linkedSet = new LinkedHashSet();
 		
 		
-		set();
-		hashSetTest();
-		treeSet1();
+//		set();
+//		hashSetTest();
+//		treeSet1();
 		treeSet2();
 	}
 	
@@ -61,23 +51,38 @@ public class SetTest {
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void hashSetTest(){
-		HashSet hs = new HashSet();  
-	//	TreeMap tm=new TreeMap();
-        hs.add(new AA("ABC", 20));  
-        hs.add(new AA("BCD", 20));  
-        hs.add(new AA("CDE", 20));  
-        hs.add(new AA("ABC", 20));  
-        hs.add(new AA("BCD", 20));  
-        Iterator it = hs.iterator();   //定义迭代器
-        while (it.hasNext()) {  
-            Object next = it.next();  
-            System.out.println("排序之前:"+next);  
-//            Entry<String, Object> me=(Entry<String, Object>) it.next();
-//            tm.put(me.getKey(), me.getValue());
-        }  
-//        System.out.println("TreeMap排序之后:"+tm);
+		List<String> list = new ArrayList<String>();
+		list.add("Jhon");
+		list.add("Jency");
+		list.add("Mike");
+		list.add("Dmitri");
+		list.add("Mike");
+		HashSet<String> strings = new HashSet<>(list);
+		ArrayList<String> strings1 = new ArrayList<>(strings);
+		System.out.println(strings1);
 	}
-	
+//	/**
+//	 *  使用hashSet去重
+//	 */
+//	@SuppressWarnings({ "unchecked", "rawtypes" })
+//	public static void hashSetTest(){
+//		HashSet hs = new HashSet();
+//		TreeMap tm=new TreeMap();
+//        hs.add(new AA("ABC", 20));
+//        hs.add(new AA("BCD", 20));
+//        hs.add(new AA("CDE", 20));
+//        hs.add(new AA("ABC", 20));
+//        hs.add(new AA("BCD", 20));
+//        Iterator it = hs.iterator();   //定义迭代器
+//        while (it.hasNext()) {
+//            Object next = it.next();
+//            System.out.println("排序之前:"+next);
+//            Map.Entry<String, Object> me=(Map.Entry<String, Object>) it.next();
+//            tm.put(me.getKey(), me.getValue());
+//        }
+//        System.out.println("TreeMap排序之后:"+tm);
+//	}
+
 	/**
 	 * 一，让容器自身具备比较性，自定义比较器。
 		需求：当元素自身不具备比较性，或者元素自身具备的比较性不是所需的。
@@ -111,17 +116,16 @@ public class SetTest {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void treeSet2(){
 		TreeSet ts = new TreeSet();  
-        ts.add(new Person("aa", 20, "男"));  
-        ts.add(new Person("bb", 18, "女"));  
-        ts.add(new Person("cc", 17, "男"));  
-        ts.add(new Person("dd", 17, "女"));  
-        ts.add(new Person("dd", 15, "女"));  
+        ts.add(new Person("bb", 18, "女"));
+		ts.add(new Person("cc", 17, "男"));
+		ts.add(new Person("dd", 17, "女"));
+		ts.add(new Person("aa", 20, "男"));
+		ts.add(new Person("dd", 15, "女"));
         ts.add(new Person("dd", 15, "女"));  
   
         System.out.println("treeSet2:"+ts);  
         System.out.println(ts.size()); // 5  
 	}
-	
 }
 
 
@@ -184,8 +188,9 @@ class Person implements Comparable {
 	    private int age;  
 	    private String gender;   //性别
 	  
-	    public Person() {  
-	    }  
+	    public Person() {
+	    }
+	    //Shandong0635.
 	  
 	    public Person(String name, int age, String gender) {  
 	  

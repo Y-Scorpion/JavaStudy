@@ -29,41 +29,6 @@
         那么我们可以通过重写被克隆对象的clone方法，
         同时给引用对象类型实现Cloneable接口
 
-### ExtendsTest.java ExtendsTest2.java
-    继承类测试,目的是测试多态以及继承内重载和重写选择优先级
-        重载方法的优先级：
-            a.先匹配参数个数
-            b.参数类型的最佳匹配：直接所属类
-            c.如果没有找到直接所属类，会发生向上转型，直至找父类参数，直观上查找顺序为：包装类-》父类-》接口（不一定准确，《深入理解Java虚拟机》有更详细的描述）
-            d.如果向上转型仍无法匹配，则查找可变参数列表
-            e.以上无法匹配返回找不到方法错误。
-        重写方法：
-            super():子类重写调用父类函数
-            this关键字:谁调用指向谁
-            
-### FinalTest.java
-    final关键字测试
-        final修饰类：该类无法被继承 ，编译报错
-        final修饰方法：该方法无法被重写，编译报错
-        final修饰变量：该变量引用指向无法修改，编译报错
-
-###
-###
-###
-###
-###
-###
-###
-###
-###
-### TestLog.java：
-    log4j2.xml 整合配置 日志输出相对println()更加详细
-    java程序入口Main方法
-    1.需要理解java的加载和执行  javac xx.java  java xxx
-    2.java开发环境配置  jdk（jre）安装和配置
-    3.编写程序 输出hellworld
-    4.java注释的使用和作用
-    5.public class 和class的区别
 ### DataType.java:
     Java语言提供了八种基本类型。
     byte、short、int、long、float、double、boolean、char
@@ -114,6 +79,44 @@
         浮点数的默认类型为 double 类型；
         double类型同样不能表示精确的值，如货币；
         默认值是 0.0d；
+
+### ExtendsTest.java ExtendsTest2.java
+    继承类测试,目的是测试多态以及继承内重载和重写选择优先级
+        重载方法的优先级：
+            a.先匹配参数个数
+            b.参数类型的最佳匹配：直接所属类
+            c.如果没有找到直接所属类，会发生向上转型，直至找父类参数，直观上查找顺序为：包装类-》父类-》接口（不一定准确，《深入理解Java虚拟机》有更详细的描述）
+            d.如果向上转型仍无法匹配，则查找可变参数列表
+            e.以上无法匹配返回找不到方法错误。
+        重写方法：
+            super():子类重写调用父类函数
+            this关键字:谁调用指向谁
+            
+### FinalTest.java
+    final关键字测试
+        final修饰类：该类无法被继承 ，编译报错
+        final修饰方法：该方法无法被重写，编译报错
+        final修饰变量：该变量引用指向无法修改，编译报错
+
+### ForTest.java
+        ConcurrentModificationException  并发修改异常测试
+        jdk1.2就出现的问题,当方法检测到对象的并发修改，但不允许这种修改时，抛出此异常。
+        这个异常在单线程和多线程运行环境都可以产生。
+    单线程解决方式
+        1、将ArrayList集合改为CopyOnWriteArrayList（HashMap替换为ConcurrentHashMap）
+        2、加 break; 感觉不靠谱
+        3、应用迭代器进行删除操作 （多线程不安全，已就报错）
+
+### InetAddressTest.java InetSocketAddressTest.java
+    InetAddressTest
+        封装IP及DNS
+    InetSocketAddressTest
+        封装端口,用于Scoket绑定用
+### IoTest.java
+    IO流简单测试
+        字符流
+        字节流
+        File对象操作
 ### KeyWord.java:
     java关键字：
         class               extends             implements              interface
@@ -225,3 +228,67 @@
 
         goto,const:
             保留关键字
+
+### ListTest.java
+    list 集合操作测试
+        list集合遍历方法
+        list集合修改遍历异常 在ForTest.java有介绍
+        list集合常用方法
+        JDK1.8新特性 List  Stream()操作       
+### MapTest.java
+    map集合操作测试
+        map常见放入遍历方式
+### PackagingTest.java
+    java对象封装测试
+### PolymorphicTest.java
+    java对象多态测试
+### ReflectTest.java ReflectTest2.java
+    java反射测试 --相当有用
+        对象.class  Class.forNmae("对象") 两种创建方式
+        getClasses()->返回类定义的公共的内部类,以及从父类、父接口那里继承来的内部类
+        getDeclaredClasses()->返回类中定义的公共、私有、保护的内部类
+        Class.getModifiers()->获取Class对应类(或者接口)的修饰符,返回修饰符的二进制值 Modifier将获取到的二进制值转换为字符串。
+        Class.getDeclaringClass() -》返回一个成员内部类所在的类的Class
+        Class.getConstructors()-》返回所有**共有**的构造方法的Constructor对象的数组
+        Class.getDeclaredConstructors() -》返回**所有**的构造方法的Constructor对象的数组的Constructor对象的数组
+        Class.getFields()-》返回此 Class 对象所表示的类或接口的所有公有字段数组(Field 对象数组)
+        Class.getDeclaredFields()-》 返回此 Class 对象所表示的类或接口中所有声明的字段数组(Field对象数组)。
+        Class.newInstance()-》创建此 Class 对象所表示的类的一个新实例。
+        Class.getMethods()-》返回一个包含某些 Method 对象的数组，这些对象反映此 Class 对象所表示的类或接口的公共 member 方法
+        Class.getDeclaredMethods()-》返回 Method 对象的一个数组，这些对象反映此 Class 对象表示的类或接口声明的所有方法，包括公共、保护、默认（包）访问和私有方法，但不包括继承的方法。
+        Constructor.invoke ->应用对象内的方法（需创建实例对象newInstance()）
+        method.setAccessible(true) ->设置或取消访问检查，以达到访问私有对象的目的;
+        Constructor.getDeclaringClass() -》返回一个构造器所在的类的Class
+        Field()->表示该 Class 的成员变量
+        Method()->表示该 Class 的成员方法
+            java.lang.reflect.Field.getDeclaringClass() -》返回一个字段所在的类的Class
+            java.lang.reflect.Method.getDeclaringClass() -》返回一个方法所在的类的Class
+            java.lang.reflect.
+### SetTest.java
+    set集合去重方法： 
+        set()-》利用set集合不允许元素重复去重
+        hashSetTest() -》利用hashSet去重
+    对象排序两种形式:   
+        定义一个类实现Comparator 接口，覆盖compare方法
+        对象实现Comparable接口，重写覆盖compareTo方法
+
+### StaticTest.java
+    构造块静态方法测试
+        创建对象时构造器的调用顺序是：先初始化静态成员，然后调用父类构造器，再初始化非静态成员，最后调用自身构造器。
+
+### StringTest.java
+    String字符串对象测试
+        test1()-》测试String，StringBuffer，StringBuilder累加性能
+        test3()-》测试String对比
+### SuperTest.java
+    测试继承父类创建对象运行流程
+        创建对象时构造器的调用顺序是：先初始化静态成员，然后调用父类构造器，再初始化非静态成员，最后调用自身构造器。
+### TestLog.java：
+    log4j2.xml 整合配置 日志输出相对println()更加详细
+    java程序入口Main方法
+    1.需要理解java的加载和执行  javac xx.java  java xxx
+    2.java开发环境配置  jdk（jre）安装和配置
+    3.编写程序 输出hellworld
+    4.java注释的使用和作用
+    5.public class 和class的区别
+

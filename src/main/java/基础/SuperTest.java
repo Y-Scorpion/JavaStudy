@@ -4,9 +4,7 @@ package 基础;
  * 
 * @Title: SuperTest
 * @Description: super测试
-* @Version:1.0.0  
-* @author pancm
-* @date 2017-5-24
+
  */
 public class SuperTest extends Person8 {
     SuperTest() {

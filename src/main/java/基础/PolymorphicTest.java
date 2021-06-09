@@ -4,9 +4,6 @@ package 基础;
  * 
  * @Title: PolymorphicTest
  * @Description: 多态测试
- * @Version:1.0.0
- * @author pancm
- * @date 2018年3月27日
  */
 public class PolymorphicTest {
 

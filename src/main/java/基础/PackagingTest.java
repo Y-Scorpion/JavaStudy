@@ -5,9 +5,6 @@ package 基础;
 * @Title: PackagingTest
 * @Description:
 * 封装 
-* @Version:1.0.0  
-* @author pancm
-* @date 2018年3月27日
  */
 public class PackagingTest {
     

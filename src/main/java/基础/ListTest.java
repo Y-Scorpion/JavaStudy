@@ -12,9 +12,6 @@ import java.util.stream.Collectors;
  * 
 * @Title: ListTest
 * @Description:关于list测试 
-* @Version:1.0.0  
-* @author pancm
-* @date 2017年10月13日
  */
 public class ListTest {
 	
@@ -28,9 +25,9 @@ public class ListTest {
 	public static void main(String[] args) {
 //		test1();
 //		test2();
-		test3();
+//		test3();
 //		test4();
-//		test5();
+		test5();
 		
 		
 		Vector<String> v=new Vector<>();
@@ -41,7 +38,7 @@ public class ListTest {
 	 * 遍历方法
 	 */
 	private static void test1() {
-	 List<String> list=new ArrayList<String>();
+	 List<String> list= new ArrayList<>();
      list.add("a");
      list.add("b");
      list.add("c");
@@ -112,8 +109,8 @@ public class ListTest {
 		list.subList(10, 20).clear();
 		System.out.println("subList:"+list);
 		
-		List<String> ls1=new ArrayList<String>();
-		List<String> ls2=new ArrayList<String>();
+		List<String> ls1= new ArrayList<>();
+		List<String> ls2= new ArrayList<>();
 		ls1.add("a");
 		ls1.add("b");
 		ls1.add("c");
@@ -129,7 +126,7 @@ public class ListTest {
 	}
 	
 	private static  void test4() {
-		LinkedList<Integer> list=new LinkedList<Integer>();	
+		LinkedList<Integer> list= new LinkedList<>();
 		list.add(3);
 		list.add(5);
 		list.add(4);
@@ -138,7 +135,7 @@ public class ListTest {
 		list.addLast(4);
 		System.out.println(list);
 		
-		LinkedList<Integer> list2=new LinkedList<Integer>();
+		LinkedList<Integer> list2= new LinkedList<>();
 		list2.add(1);
 		list2.add(2);
 		list2.add(4);
@@ -148,7 +145,11 @@ public class ListTest {
 		list2.add(5);
 		System.out.println("去重之前:"+list2);
 		//jdk1.8去重
-		List<Integer> newList = list2.stream().distinct().collect(Collectors.toList()); 
+		List<Integer> newList = list2.stream().distinct().collect(Collectors.toList());
+//		list2
+//				.stream()
+//				.distinct()
+//				.forEach(System.out::println);
 		System.out.println("去重之后:"+newList);
 		
 	}

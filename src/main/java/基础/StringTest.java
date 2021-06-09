@@ -3,9 +3,7 @@ package 基础;
 /**
 * Title: test1
 * Description: string相关问题
-* Version:1.0.0  
-* @author pancm
-* @date 2017-7-21
+* Version:1.0.0
  */
 public class StringTest {
 	  public static void main(String[] args) {
@@ -13,8 +11,8 @@ public class StringTest {
 		  String hello="hello";
 		  //有15种构造方法,有两种是过时的，其中包含char[],byte[],int[],String,StringBuffer,StringBuilder。
 		  String newHello=new String("hello");
-		  char []cHello ={'h','e','l','l','o'};
-		  String str=new String(cHello);
+		  char []cHello ={'h','e','l','l','o'}; //char数组
+		  String str=new String(cHello); //通过char数组创建String对象
 		  System.out.println(hello+","+newHello+","+str);
 		  test1();
 		  test3();
@@ -22,7 +20,7 @@ public class StringTest {
 		  System.out.println("=="+"-2".indexOf("-1"));
 		  System.out.println("=="+"-1".indexOf("-1"));
 		  System.out.println("=="+"0".indexOf("-1"));
-		  System.out.println("=="+"1".indexOf("-1"));
+		  System.out.println("=="+"1".indexOf("1"));
 		  String string = null;
 		  System.out.println(""+string);
 		  System.out.println((""+string));

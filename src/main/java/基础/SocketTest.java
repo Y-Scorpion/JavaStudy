@@ -9,11 +9,9 @@ import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.ByteBuffer;
-import java.nio.channels.SelectionKey;
-import java.nio.channels.Selector;
-import java.nio.channels.ServerSocketChannel;
-import java.nio.channels.SocketChannel;
+import java.nio.channels.*;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -21,9 +19,6 @@ import java.util.Set;
  * 
  * @Title: SocketTest
  * @Description:Socket测试
- * @Version:1.0.0
- * @author pancm
- * @date 2017年11月16日
  */
 public class SocketTest {
 	/** 端口 */
@@ -32,9 +27,11 @@ public class SocketTest {
 	private static String request = null;
 	private static String response = null;
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		request = "Hello";
-		socketTest(request);
+//		socketTest(request);
+//		serve(portNumber);
+		serve1(portNumber);
 
 	}
 
@@ -81,7 +78,7 @@ public class SocketTest {
 	 * @param port
 	 * @throws IOException
 	 */
-	public void serve(int port) throws IOException {
+	public static void serve(int port) throws IOException {
 		// 将服务器绑定到指定端口
 		final ServerSocket socket = new ServerSocket(port);
 		try {
@@ -97,8 +94,7 @@ public class SocketTest {
 						try {
 							out = clientSocket.getOutputStream();
 							// 将消息写给已连接的客户端
-							out.write("Hi!\r\n".getBytes(Charset
-									.forName("UTF-8")));
+							out.write("Hi!\r\n".getBytes(StandardCharsets.UTF_8));
 							out.flush();
 							clientSocket.close();
 						} catch (IOException e) {
@@ -123,18 +119,18 @@ public class SocketTest {
 	 * @param port
 	 * @throws IOException
 	 */
-	public void serve1(int port) throws IOException {
-		ServerSocketChannel serverChannel = ServerSocketChannel.open();
-		serverChannel.configureBlocking(false);
-		ServerSocket ssocket = serverChannel.socket();
-		InetSocketAddress address = new InetSocketAddress(port);
-		ssocket.bind(address);
+	public static void serve1(int port) throws IOException {
+		ServerSocketChannel serverChannel = ServerSocketChannel.open(); //打开一个套接字通道 NIO
+		InetSocketAddress address = new InetSocketAddress(port); //封装到端口地址
+		serverChannel.configureBlocking(false); //配置阻塞 与Selector一起使用时，Channel必须处于非阻塞模式下
+		serverChannel.socket().bind(address);
+
 		//打开Selector来处理Channel
 		Selector selector = Selector.open();
 		//将ServerSocket 注册到Selector以接受连接
 		serverChannel.register(selector, SelectionKey.OP_ACCEPT);
 		final ByteBuffer msg = ByteBuffer.wrap("Hi!\r\n".getBytes());
-		for (;;) {
+		while(true) {
 			try {
 				//等待需要处理的新事件； 阻 塞 将一直持续到下一个传入事件
 				selector.select();
@@ -142,22 +138,39 @@ public class SocketTest {
 				ex.printStackTrace();
 				break;
 			}
-			//获取所有接收事件的Selection-Key实例
+			//获取所有接收事件的Selection-Key实例  这个循环遍历已选择键集中的每个键，并检测各个键所对应的通道的就绪事件
 			Set<SelectionKey> readyKeys = selector.selectedKeys();
-			Iterator<SelectionKey> iterator = readyKeys.iterator();
+			Iterator<SelectionKey> iterator = readyKeys.iterator(); //创建迭代器
 			while (iterator.hasNext()) {
 				SelectionKey key = iterator.next();
-				iterator.remove();
+				iterator.remove(); //清空是什么意思？
 				try {
+
 					//检查事件是否是一个新的已经就绪可以被接受的连接
+
 					if (key.isAcceptable()) {
 						ServerSocketChannel server = (ServerSocketChannel) key.channel();
-						SocketChannel client = server.accept();
+						SocketChannel client = server.accept(); //监听 对 accept()方法的调用将被阻塞，直到一个连接建立
 						client.configureBlocking(false);
 						//接受客户端，并将它注册到选择器
 						client.register(selector, SelectionKey.OP_WRITE
 								| SelectionKey.OP_READ, msg.duplicate());
 						System.out.println("Accepted connection from " + client);
+					}
+					if (key.isReadable()) {
+						SocketChannel channel =  (SocketChannel)key.channel();
+						ByteBuffer buf = ByteBuffer.allocate(48);
+						int read = channel.read(buf);
+						while (read != -1) {
+							buf.flip();  //flip方法将Buffer从写模式切换到读模式。调用flip()方法会将position设回0，并将limit设置成之前position的值。
+							while(buf.hasRemaining()){
+
+								System.out.print((char) buf.get());  //get()方法从Buffer中读取数据
+							}
+							buf.clear(); //清空Buffer
+							read = channel.read(buf); //重新读取数据进入Buffer
+						}
+//						channel.close();
 					}
 					//检查套接字是否已经准备好写数据
 					if (key.isWritable()) {
@@ -169,8 +182,9 @@ public class SocketTest {
 								break;
 							}
 						}
-						client.close();
+//						client.close();
 					}
+
 				} catch (IOException ex) {
 					key.cancel();
 					try {

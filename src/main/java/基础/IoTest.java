@@ -18,9 +18,6 @@ import java.util.Properties;
 * @Title: IoTest
 * @Description: 
 * io字符流和字节流测试
-* @Version:1.0.0  
-* @author pancm
-* @date 2018年6月11日
 */
 public class IoTest {
 
@@ -69,6 +66,8 @@ public class IoTest {
 		String path="E:/test/hello.txt";
 		String str="hello world";
 		//创建一个文件并向文件中写数据 需要文件夹存在
+		//FileInputStream应该是文件读入的流，流应该只会读取文件，不会自己创建文件；
+		// new File(string s)，File是一个文件对象，可以创建文件，文件只有在创建后才能被流读取
 		OutputStream output = new FileOutputStream(path);
 		output.write(str.getBytes());
 		output.close();
